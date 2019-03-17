@@ -32,6 +32,15 @@ list of unique authors (authors.csv)
 
 ex: `extract-authors.py authact.*.e.csv`
 
+## Derive a dictionary mapping author emails to canonical ones
+See https://github.com/ssc-oscar/titan for software that creates the
+mapping.
+
+To translate this mapping into a pickled python dictionary mapping
+various author emails to canonical author emails:
+
+ex: `make-alias-dictionary.py <matchfile>.tgz data/mapping.dict`
+
 ## Collect commits across all ecosystems, unifying author identities
 Reads from authact files and author alias lookup dictionaries,
 and writes a unified author activity file that summarizes
@@ -39,8 +48,7 @@ all of a person's activities over multiple ecosystems
 
 The author map file should be a pickled dictionary mapping an
 email address to a canonical email address for that person
-
-
+ 
 ex: `substitute-authors.py authormap.dict.pickle authact*.csv`
 
 Writes to unified.authors.csv.gz
